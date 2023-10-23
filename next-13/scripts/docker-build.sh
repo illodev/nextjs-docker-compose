@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if hash docker-compose 2>/dev/null; then
+    DOCKER_COMPOSE="docker-compose"
+elif hash docker compose 2>/dev/null; then
+    DOCKER_COMPOSE="docker compose"
+else
+    echo "Please install docker-compose"
+    exit 1
+fi
+
+# Stop containers
+$DOCKER_COMPOSE down --remove-orphans -v
+# start containers
+$DOCKER_COMPOSE up -d --build

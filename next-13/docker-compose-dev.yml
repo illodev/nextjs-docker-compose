@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+
+    next:
+        build:
+            context: ./
+            target: dev
+        volumes:
+            - ./next:/app/
